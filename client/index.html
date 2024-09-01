@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <h1>Task Manager</h1>
+    
+    <button onclick="showForm('taskForm')">Add Task</button>
+    <button onclick="redirectTo('http://localhost:8080/display')">Dispaly Task</button>
+    <button onclick="showForm('removeForm')">Remove Task</button>
+    <button onclick="showForm('completeForm')">Complete Task</button>
+
+    <form id="taskForm" action="http://localhost:8080/task" method="get" style="display: none;">
+        <label for="name">Task Name:</label>
+        <input type="text" name="name" id="name" required><br>
+        
+        <label for="description">Description:</label>
+        <input type="text" name="description" id="description"><br>
+        
+        <label for="date">Date:</label>
+        <input type="date" name="date" id="date"><br>
+        
+        <label for="time">Time:</label>
+        <input type="time" name="time" id="time"><br>
+        
+        <input type="submit" value="Submit">
+        <button type="button" class="cancel" onclick="hideForm('taskForm')">Cancel</button>
+    </form>
+
+    <form id="removeForm" action="http://localhost:8080/remove" method="get" style="display: none;">
+        <label for="taskIdRemove">Task ID:</label>
+        <input type="text" name="id" id="taskIdRemove" required><br>
+        
+        <input type="submit" value="Remove Task">
+        <button type="button" class="cancel" onclick="hideForm('removeForm')">Cancel</button>
+    </form>
+
+    <form id="completeForm" action="http://localhost:8080/complete" method="get" style="display: none;">
+        <label for="taskIdComplete">Task ID:</label>
+        <input type="text" name="id" id="taskIdComplete" required><br>
+        
+        <input type="submit" value="Complete Task">
+        <button type="button" class="cancel" onclick="hideForm('completeForm')">Cancel</button>
+    </form>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
